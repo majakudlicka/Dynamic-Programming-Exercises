@@ -1,0 +1,38 @@
+// Problem
+// Yuckdonald’s is considering opening a series of restaurant along QVH. n possible locations are along a straight line
+// and the distances of these locations from the start of QVH are in miles and in increasing order m1, m2, ...., mn.
+// The constraints are as follows:
+// 1. At each location, Yuckdonald may open one restaurant and expected profit from opening a restaurant at location i is given as pi
+// 2. Any two restaurants should be at least k miles apart, where k is a positive integer
+
+
+// Solution
+// M = [m1,...,mn]; m1...mn >0
+// P = [p1...pn]; p1...pn >0
+// k = min distance; k>0
+function yuckDonalds(M,P, k) {
+    const profits = [];
+    const n = M.length;
+
+    for (i=0; i <n; i++) {
+        profits[i] = P[i];
+        for (j=0; j < i; j++) {
+            temp = profits[j] + P[i];
+            if ((M[i]-M[j])>=k && (profits[i] < temp )) {
+                profits[i] = temp;
+            }
+        }
+    }
+    return profits[n-1];
+}
+
+// yuckDonalds([100,200,300], [10,10,10],100)
+// Output: 30
+
+// yuckDonalds([50,100,150], [10,10,10], 100)
+// Output: 20
+
+// yuckDonalds([20, 40, 150, 560, 910], [400, 3, 45, 800, 10], 140 )
+// Output: 1210
+
+//Time complexity of the algorithm: O(n2)
