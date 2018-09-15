@@ -1,0 +1,29 @@
+// You are given a string of n characters s[1 . . . n], which you believe to be a corrupted text document
+//in which all punctuation has vanished (so that it looks something like “itwasthebestoftimes...”).
+// You wish to reconstruct the document using a dictionary, which is available in the form of a
+//Boolean function dict(·): for any string w,
+//dict(w) =
+// true if w is a valid word
+// false otherwise .
+
+Input: String s, Function Dict
+S =[], C=[]
+S[0] = true
+C[0] = 0
+
+for i: 1->n
+  S[i] = false;
+  C[i] = 0
+  for j: 1-> (i-1)
+    if S[j] = true && Dict(s[j+1...i]) = true
+        S[i] = true
+        C[i] = j
+
+return S[n]
+// Traverse backword to get the words (in reverse)
+let index = n
+while (index > 0)
+  print s[c[i]+1...i]
+  index = c[i]
+
+// Time complexity O(n2)
