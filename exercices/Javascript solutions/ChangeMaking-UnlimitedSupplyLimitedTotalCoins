@@ -1,0 +1,42 @@
+// Given an unlimited supply of coins of denominations x1, x2, . . . , xn, we wish to make change for
+// a value v using at most k coins; that is, we wish to find a set of ≤ k coins whose total value is v
+
+//Input: x1, . . . , xn; k; v.
+//Question: Is it possible to make change for v using at most k coins, of denominations
+// x1, . . . , xn?
+
+//Solution
+
+// Algorithm:
+// Change(v) =  1+ min Change(v − x)
+// x∈{x1,...,xn}
+
+// Working code
+function change(coinsArray, k, V) {
+    const changeArray = [];
+    changeArray[0] = 0;
+    const n = coinsArray.length;
+
+    for (let v = 1; v <= V; v++) {
+        changeArray[v] = Infinity;
+    }
+
+    for (let v = 0; v <= V; v++) {
+        for (let i = 0; i < n; i++) {
+            let x = coinsArray[i]
+            let curr = 1 + changeArray[v - x]
+            if (changeArray[v] > curr) {
+                changeArray[v] = curr;
+            }
+        }
+    }
+
+    console.log(changeArray)
+
+    return changeArray[V] <= k
+
+}
+
+change([5, 10], 3, 30);
+
+// Time complexity: O(nv)

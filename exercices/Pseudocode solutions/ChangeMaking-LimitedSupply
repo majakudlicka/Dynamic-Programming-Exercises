@@ -1,0 +1,22 @@
+
+ You are given denominations x1, x2, . . . , xn, and you want to make change for a value v, but you are allowed to
+  use each denomination at most once.
+
+  Input: Positive integers x1, x2, . . . , xn; another integer v.
+  Output: Can you make change for v, using each denomination xi at most once?
+
+  Input: x0....xn, V
+
+
+  For i: 0-> n D(i,0) = true
+    For v: 1-> V D(0,v) = false
+
+    For i: 1-> n
+      For v: 1-> V
+        D(i,v) = false
+
+      if (xi <= v) then D(i,v)= D(i-1, v) V D(i-1, v-xi)
+
+      else D(i,v) = D(i-1,v)
+
+   return D(V,n)

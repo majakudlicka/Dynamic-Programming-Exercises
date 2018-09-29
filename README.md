@@ -1,7 +1,11 @@
 # Dynamic-Programming-Exercises
-1. Dictionary exercise
-2. Hotel problem
-3. Longest Common Subsequence
-4. Longest Common Substring
-5. Substring with the biggest sum
-2. YuckDonald's
+
+My solved homework assignments from Graduate Algorithms Course (Udacity) divided into following subfolders:
+
+1. Javascript solutions:
+
+Full working code solution written in Javascript
+
+2. Pseudocode solutions
+
+Solved algorithm + proof of concept; language agnostic
