@@ -1,0 +1,26 @@
+A subsequence is palindromic if it is the same whether read left to right or right to
+left. For instance, the sequenceA, C, G, T, G, T, C, A, A, A, A, T, C, G
+has many palindromic subsequences, including A, C, G, C, A and A, A, A, A. Devise an algorithm
+that takes a sequence x1, x2, . . . , xn and returns the length of the longest palindromic
+subsequence.
+
+Let P(i, k) = Palindromic Sequence starting at i of length k
+
+For i: 1-> n
+    P(i, 1) = 1
+
+For i: 1->n
+    if xi = x(i+1)
+        P(i, 2) = 2
+    else
+        P(i,2) = 1
+
+For k:3->n
+    For i:1->n-k+1
+        if (x(i-1) = x(i+k)
+            P(i, k) = P(i+1, k-2)
+        else
+            P(i,k) = Max(P(i, k-1), P(i+1, k-1))
+
+
+return P(1,n)

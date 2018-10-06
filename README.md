@@ -2,10 +2,10 @@
 
 My solved homework assignments from Graduate Algorithms Course (Udacity) divided into following subfolders:
 
-1. Javascript solutions:
+1. Code solutions (JS):
 
-Full working code solution written in Javascript
+Full working code solution (written in Javascript)
 
-2. Pseudocode solutions
+2. Algorithm solutions
 
-Solved algorithm + proof of concept; language agnostic
+Algorithm - can be translated into any language
