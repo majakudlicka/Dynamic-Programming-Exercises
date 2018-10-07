@@ -8,15 +8,13 @@
   Input: x0....xn, V
 
 
-  For i: 0-> n D(i,0) = true
-    For v: 1-> V D(0,v) = false
+  For i: 0-> n D(v,0) = true
 
-    For i: 1-> n
-      For v: 1-> V
-        D(i,v) = false
+  For v: 1-> V
+    For i: 0-> n
 
-      if (xi <= v) then D(i,v)= D(i-1, v) V D(i-1, v-xi)
+     D(v,i)= D(v, i-1) V D(v-xi, i-1 )
 
-      else D(i,v) = D(i-1,v)
+      else D(v,i) = false;
 
-   return D(V,n)
+  return D(n,V)

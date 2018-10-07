@@ -1,0 +1,26 @@
+Given a directed graph with edge weights w(e), find a shortest path from starting point s to any point z ∈ V in the graph.
+Weights can be negative.
+
+For i :1->n
+    D(0,s) = 0
+    D(0,z) = Infinity; s != z
+
+For i:1-> n
+    for all z∈V
+
+    D(i,z) = D(i-1, z)
+
+    For all y; y∈E
+
+    if D(i,z) > D(i-1,y) + w(y,z)
+
+    D(i,z) = D(i-1,y) + w(y,z)
+
+    if D(n,z) < D(n-1, z)
+    then problem not well defined (negative cycle exists)
+    else
+    continue
+
+ Return D(n-1, *)
+
+
